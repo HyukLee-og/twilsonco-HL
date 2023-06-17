@@ -72,10 +72,11 @@ class LatControlTorque(LatControl):
     self.custom_torque = self.param_s.get_bool("CustomTorqueLateral")
     self._frame = 0
 
-  def update_live_torque_params(self, latAccelFactor, latAccelOffset, friction):
-    self.torque_params.latAccelFactor = latAccelFactor
-    self.torque_params.latAccelOffset = latAccelOffset
-    self.torque_params.friction = friction
+  def update_live_torque_params(self, torque_params):
+    self.torque_params.latAccelFactor = torque_params.latAccelFactorFiltered
+    self.torque_params.latAccelOffset = torque_params.latAccelOffsetFiltered
+    self.torque_params.friction = torque_params.frictionCoefficientFiltered
+    # self.pid.k_f = torque_params.kf
 
   def update_live_tune(self):
     if not self.custom_torque:
