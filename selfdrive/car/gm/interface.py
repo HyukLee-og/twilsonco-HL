@@ -336,6 +336,20 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.13, 0.24], [0.01, 0.02]]
       ret.lateralTuning.pid.kf = 0.000045
       tire_stiffness_factor = 1.0
+
+    elif candidate == CAR.TRAILBLAZER:
+      ret.minEnableSpeed = -1.  # engage speed is decided by pcm
+      ret.mass = 1365. + STD_CARGO_KG
+      ret.wheelbase = 2.64
+      ret.steerRatio = 16.5
+      ret.centerToFront = ret.wheelbase * 0.38  # FIXME: Need to tune more.
+      tire_stiffness_factor = 1.0
+      
+      ret.autoResumeSng = True
+      CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
+
+    
+
     elif candidate == CAR.BOLT_EUV:
       ret.minEnableSpeed = -1
       ret.mass = 1669. + STD_CARGO_KG

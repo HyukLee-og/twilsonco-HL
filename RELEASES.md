@@ -1,5 +1,6 @@
 Version tw-0.8.12 (2023-05-24)
 ========================
+  * 이게 맞나...
   * TOO MANY CHANGES!! HAVE FUN SCROLLING AND READING.
   * MAYBE CHECKOUT THE UPDATED README INSTEAD?
 
