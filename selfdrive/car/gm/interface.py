@@ -253,8 +253,6 @@ class CarInterface(CarInterfaceBase):
       ret.centerToFront = ret.wheelbase * 0.38  # FIXME: Need to tune more.
       tire_stiffness_factor = 1.0
       
-      ret.autoResumeSng = True
-      CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
 
 
     # TODO: get actual value, for now starting with reasonable value for
